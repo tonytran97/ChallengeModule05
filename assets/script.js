@@ -4,6 +4,8 @@ $("#currentDay").text(currentDay);
 
 var currentHour = moment().format("H");
 
+// localStorage.clear();
+
 // hours in a standard business job (9AM-5PM)
 var workHours = 9;
 
@@ -48,4 +50,20 @@ function color() {
         eventColumns.addClass("past");
     } else
         eventColumns.addClass("future");
+}
+
+var saveBtnClick = $("button");
+var textAreaInfo = $("textarea");
+
+saveBtnClick.on("click", function (event) {
+    event.preventDefault();
+    savedText = textAreaInfo.val();
+    localStorage.setItem("text", savedText);
+    // prompt("hello");
+}
+);
+
+for (i = 0; i < workHours; i++) {
+    var userInput = localStorage.getItem("text");
+    $(textAreaInfo[i]).text(userInput);
 }
