@@ -28,22 +28,34 @@ for (i = 0; i < workHours; i++) {
     color();
 
     var saveBtn = $("<button>");
-    saveBtn.addClass("col-2 saveBtn");
+    saveBtn.addClass("col-1 saveBtn");
 
     var saveIcon = $("<i>");
     saveIcon.addClass("fas fa-save");
+
+    var deleteBtn = $("<button>");
+    deleteBtn.addClass("col-1 deleteBtn");
+
+    var deleteIcon = $("<i>");
+    deleteIcon.addClass("fas fa-trash");
 
     $(".container").append(columns);
     columns.append(timeColumns);
     columns.append(eventColumns);
     saveBtn.append(saveIcon);
     columns.append(saveBtn);
+    deleteBtn.append(deleteIcon);
+    columns.append(deleteBtn);
 
-    // set increasing ID numbers to each of the buttons 
+    // set increasing ID numbers to each of the save buttons 
     saveBtnNumber = document.querySelectorAll(".saveBtn")[i];
     saveBtnNumber.setAttribute("id", i);
 
-    // set increasing ID numbers to each of the buttons 
+    // set increasing ID numbers to each of the delete buttons 
+    deleteBtnNumber = document.querySelectorAll(".deleteBtn")[i];
+    deleteBtnNumber.setAttribute("id", i);
+
+    // set increasing ID numbers to each of the textareas 
     eventColumnsNumber = document.querySelectorAll(".description")[i];
     eventColumnsNumber.setAttribute("id", i + 9);
 }
@@ -77,4 +89,13 @@ $(".saveBtn").on("click", function () {
 
     // information is stored
     localStorage.setItem(hour, textInput);
+})
+
+$(".deleteBtn").on("click", function () {
+    console.log(this);
+    var textInput = $(this).siblings(".description").val("");
+    var hour = $(this).attr("id");
+
+    // removes local storage of the timeblock that is clicked
+    localStorage.removeItem(hour, textInput);
 })

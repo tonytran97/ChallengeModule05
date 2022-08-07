@@ -73,8 +73,8 @@ header {
 /* changed background color from #06AED5 to #79b6a3*/
 .saveBtn {
   border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  /* border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px; */
   background-color: #79b6a3;
   color: white;
 }
@@ -82,4 +82,16 @@ header {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all .3s ease-in-out;
+}
+
+.deleteBtn {
+  border-left: 1px solid black;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  background-color: #79b6a3;
+  color: white;
+}
+
+.container {
+  padding-bottom: 2%;
 }
