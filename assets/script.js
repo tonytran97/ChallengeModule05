@@ -48,13 +48,16 @@ for (i = 0; i < workHours; i++) {
     eventColumnsNumber.setAttribute("id", i + 9);
 }
 
-var container = $(".container");
-var textAreaInfo = $("textarea");
-
-// ISSUES GETTING ITEM!!!!!!
-
-document.getElementById("9") = localStorage.getItem("0");
-console.log(localStorage.getItem("0"));
+// retrieving the saved information and displaying it in the specific timeblock
+document.getElementById("9").textContent = localStorage.getItem("0");
+document.getElementById("10").textContent = localStorage.getItem("1");
+document.getElementById("11").textContent = localStorage.getItem("2");
+document.getElementById("12").textContent = localStorage.getItem("3");
+document.getElementById("13").textContent = localStorage.getItem("4");
+document.getElementById("14").textContent = localStorage.getItem("5");
+document.getElementById("15").textContent = localStorage.getItem("6");
+document.getElementById("16").textContent = localStorage.getItem("7");
+document.getElementById("17").textContent = localStorage.getItem("8");
 
 // function to color-code the time blocks
 function color() {
