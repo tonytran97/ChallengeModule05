@@ -4,8 +4,6 @@ $("#currentDay").text(currentDay);
 
 var currentHour = moment().format("H");
 
-// localStorage.clear();
-
 // hours in a standard business job (9AM-5PM)
 var workHours = 9;
 
@@ -40,7 +38,23 @@ for (i = 0; i < workHours; i++) {
     columns.append(eventColumns);
     saveBtn.append(saveIcon);
     columns.append(saveBtn);
+
+    // set increasing ID numbers to each of the buttons 
+    saveBtnNumber = document.querySelectorAll(".saveBtn")[i];
+    saveBtnNumber.setAttribute("id", i);
+
+    // set increasing ID numbers to each of the buttons 
+    eventColumnsNumber = document.querySelectorAll(".description")[i];
+    eventColumnsNumber.setAttribute("id", i + 9);
 }
+
+var container = $(".container");
+var textAreaInfo = $("textarea");
+
+// ISSUES GETTING ITEM!!!!!!
+
+document.getElementById("9") = localStorage.getItem("0");
+console.log(localStorage.getItem("0"));
 
 // function to color-code the time blocks
 function color() {
@@ -52,18 +66,12 @@ function color() {
         eventColumns.addClass("future");
 }
 
-var saveBtnClick = $("button");
-var textAreaInfo = $("textarea");
+// nearby information is collected based on which button is clicked
+$(".saveBtn").on("click", function () {
+    console.log(this);
+    var textInput = $(this).siblings(".description").val();
+    var hour = $(this).attr("id");
 
-saveBtnClick.on("click", function (event) {
-    event.preventDefault();
-    savedText = textAreaInfo.val();
-    localStorage.setItem("text", savedText);
-    // prompt("hello");
-}
-);
-
-for (i = 0; i < workHours; i++) {
-    var userInput = localStorage.getItem("text");
-    $(textAreaInfo[i]).text(userInput);
-}
+    // information is stored
+    localStorage.setItem(hour, textInput);
+})
