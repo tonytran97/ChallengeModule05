@@ -8,4 +8,4 @@ Webpage Preview
 
 ![Work Day Scheduler Preview](assets/images/previewSample.png)
 
-Here is the link of the deployed webpage: 
+Here is the link of the deployed webpage: https://tonytran97.github.io/ChallengeModule05/
